@@ -28,6 +28,9 @@ function! PackInit() abort
   call minpac#add('tomtom/tcomment_vim')
   call minpac#add('tpope/vim-surround')
   call minpac#add('ludovicchabant/vim-gutentags')
+  call minpac#add('sheerun/vim-polyglot')
+  call minpac#add('mattn/emmet-vim')
+  call minpac#add('fatih/vim-go')
 
   " Load the plugins right now. (optional)
   " packloadall
@@ -72,8 +75,6 @@ set list
 "set showbreak = ↪\
 set listchars=tab:→\ ,nbsp:•,trail:•,extends:⟩,precedes:⟨
 
-"The order matters. This line should come later than vim-colors-solarized settings.
-highlight SpecialKey ctermbg=NONE ctermfg=19 cterm=NONE
 
 " CoC Suggestions
 set cmdheight=2
@@ -116,7 +117,6 @@ nmap <leader>h :bprevious<cr>
 nmap <leader>l :bnext<cr>
 nmap <leader>q :bdelete<cr>
 
-
 "------MOVE AROUND-----
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -144,9 +144,12 @@ vnoremap // y/<C-R>"<CR>
 "Clean search highlights
 nnoremap <leader>, :noh<cr>
 
-"-----PLUGIN: vim-colors-solarized
+" "-----PLUGIN: vim-colors-solarized
 set background=dark
 colorscheme solarized
+
+"The order matters. This line should come later than vim-colors-solarized settings.
+highlight SpecialKey ctermbg=NONE ctermfg=19 cterm=NONE
 
 "-----PLUGIN: CoC
 
@@ -190,11 +193,17 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+vmap <leader>p  <Plug>(coc-format-selected)
+nmap <leader>p  <Plug>(coc-format-selected)
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 "--------------------------------------
 
 "-----PLUGIN: lightline
 let g:bufferline_solo_highlight    = 1
-let g:lightline                    = {'colorscheme': 'wombat'}
+let g:lightline                    = {'colorscheme': 'solarized'}
 let g:lightline.tabline            = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.active             = {'left': [['mode', 'paste'],
                                     \          ['gitbranch'], ['readonly', 'filename', 'modified', 'gutentags', 'coc']]
@@ -227,9 +236,19 @@ let g:indent_guides_guide_size = 1
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :BTags<CR>
 nnoremap <Leader>t :Tags<CR>
+map ; :GFiles<CR>
 
 "------PLUGIN: tomtom/tcomment_vim
 noremap <silent> <Leader>cc :TComment<CR>
+
+"----- PLUGIN: vim-go
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1 
 
 " Define user commands for updating/cleaning the plugins.
 " Each of them calls PackInit() to load minpac and register

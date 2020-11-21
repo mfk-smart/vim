@@ -1,7 +1,25 @@
 {
   "coc.preferences.bracketEnterImprove": true,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx", "vue", "css"],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "json", "typescript.tsx", "vue", "css"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "vue",
+    "css",
+    "markdown"
+  ],
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "json",
+    "typescript.tsx",
+    "vue"
+  ],
   "diagnostic.errorSign": "\ue0b0",
   "diagnostic.warningSign": "\ue0b0",
   "diagnostic.infoSign": "--"
