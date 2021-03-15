@@ -22,7 +22,6 @@ function! PackInit() abort
   call minpac#add('mengelbrecht/lightline-bufferline')
   call minpac#add('nathanaelkane/vim-indent-guides')
   call minpac#add('jeetsukumaran/vim-filebeagle')
-  call minpac#add('ryanoasis/vim-devicons')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('tomtom/tcomment_vim')
@@ -31,6 +30,9 @@ function! PackInit() abort
   call minpac#add('sheerun/vim-polyglot')
   call minpac#add('mattn/emmet-vim')
   call minpac#add('fatih/vim-go')
+  call minpac#add('ryanoasis/vim-devicons')
+  call minpac#add('digitaltoad/vim-pug')
+  call minpac#add('rizzatti/dash.vim')
 
   " Load the plugins right now. (optional)
   " packloadall
@@ -240,6 +242,9 @@ map ; :GFiles<CR>
 
 "------PLUGIN: tomtom/tcomment_vim
 noremap <silent> <Leader>cc :TComment<CR>
+
+"------PLUGIN: Dash 
+nmap <silent> <leader>d <Plug>DashSearch
 
 "----- PLUGIN: vim-go
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
