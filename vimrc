@@ -33,6 +33,8 @@ function! PackInit() abort
   call minpac#add('ryanoasis/vim-devicons')
   call minpac#add('digitaltoad/vim-pug')
   call minpac#add('rizzatti/dash.vim')
+  call minpac#add('github/copilot.vim')
+
 
   " Load the plugins right now. (optional)
   " packloadall
